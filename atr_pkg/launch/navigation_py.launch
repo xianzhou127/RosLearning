@@ -1,0 +1,6 @@
+<launch>
+
+    <node pkg="ssr_pkg" type="Ultrasonic_node.py" name="Ultrasonic_node"/>
+    <node pkg="atr_pkg" type="Motor_node.py" name="Motor_node" output="screen"/>
+
+</launch>

@@ -1,0 +1,14 @@
+<launch>
+<!-- 运行其他launch文件 -->
+    <include file="$(find wpr_simulation)/launch/wpb_stage_robocup.launch"/>
+<!-- 运行节点 -->
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" >
+    <param name="maxUrange" value="3.0"/>
+    <param name="map_update_interval" value="3.0"/>
+    </node>
+    <!-- args后接参数 -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find slam_pkg)/rviz/slam.rviz"/>
+    <node pkg="wpr_simulation" type="keyboard_vel_ctrl" name="keyboard_vel_ctrl" />
+</launch>
+
+<!-- 边缘设备可通过修改gmapping参数降低cpu消耗 -->

@@ -1,0 +1,15 @@
+<launch>
+
+    <node pkg="ssr_pkg" type="Ultrasonic_node" name="Ultrasonic_node"/>
+
+    <node pkg="ssr_pkg" type="IMU_node" name="IMU_node" launch-prefix="gnome-terminal -e"/>
+
+    <node pkg="atr_pkg" type="Motor_node" name="Motor_node" output="screen"/>
+
+</launch>
+
+<!--
+    launch一次启动多个节点
+    launch-prefix="gnome-terminal -e" 在新的终端运行节点
+    output="screen" 令ROS_INFO输出，否则只输出ROS_WARN
+-->
